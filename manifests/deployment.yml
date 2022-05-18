@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: qaabinapp 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: qaabinapp
+  template:
+    metadata:
+      labels:
+        app: qaabinapp 
+    spec:
+      containers:
+        - name: qaabinapp 
+          image: abinacr.azurecr.io/qaabinapp
+          ports:
+          - containerPort: 80
