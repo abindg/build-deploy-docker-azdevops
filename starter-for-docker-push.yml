@@ -2,6 +2,8 @@
 trigger:
 - main
 
+variables:
+  tag_id: $(Build.BuildId)
 
 stages:
   - stage: Build
@@ -13,4 +15,11 @@ stages:
           vmImage: ubuntu-latest
         steps:
           - bash: echo "this works"
+          - task: Docker@2
+            inputs:
+              containerRegistry: 'acr-abin-final'
+              repository: 'starter/abinapp'
+              command: 'buildAndPush'
+              Dockerfile: '**/Dockerfile'
+              tags: $(tag_id)
           
