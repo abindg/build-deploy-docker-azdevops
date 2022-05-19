@@ -1,0 +1,16 @@
+
+trigger:
+- main
+
+
+stages:
+  - stage: Build
+    displayName: Build Stage
+    jobs:
+      - job: Build
+        displayName: Build Job
+        pool:
+          vmImage: ubuntu-latest
+        steps:
+          - bash: echo "this works"
+          
