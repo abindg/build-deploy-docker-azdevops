@@ -15,9 +15,7 @@ spec:
     spec:
       containers: # List
         - name: myapp1-container
-          image: abinacr.azurecr.io/new/testapp:v1
+          image: abinacr.azurecr.io/starter/abinapp
           imagePullPolicy: Always
           ports:
             - containerPort: 80
-      imagePullSecrets:
-        - name: abinacrsecret
